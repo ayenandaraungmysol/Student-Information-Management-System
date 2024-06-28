@@ -23,8 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('grade');
             $table->string('father_name');
             $table->string('address');
-            //$table->int('class_id');
-
+            $table->foreignId('class_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
