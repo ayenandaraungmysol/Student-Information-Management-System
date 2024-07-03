@@ -22,10 +22,14 @@ Route::get('/', function () {
     }
     return view('auth.login');
 });
-//Admin' route
+//Admin's route
 Route::get('/admin/create', [App\Http\Controllers\StudentController::class, 'createStudent']);
 Route::post('/admin/createSave', [App\Http\Controllers\StudentController::class, 'store'])->name('student.store');
 Route::get('/admin/students', [App\Http\Controllers\StudentController::class, 'index'])->name('student.all');
+Route::get('/admin/teachers',[App\Http\Controllers\AdminController::class,'teachers'])->name('teacher.all');
+
+//Teacher's route
+Route::get('/teacher/students',[\App\Http\Controllers\TeacherController::class,'studentsOfTeacher'])->name('teacher.students');
 
 
 

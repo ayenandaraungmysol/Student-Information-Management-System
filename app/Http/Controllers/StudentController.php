@@ -33,18 +33,6 @@ class StudentController extends Controller
             $student->address = $request->input('address');
             $student->class_id = (int)$request->input('student_class');
             $student->save();
-
-            // $student->name = $request->name;
-            // $student->email = $request->email;
-            // $student->phone = $request->phone;
-            // $student->gender = $request->gender;
-            // $student->age = $request->age;
-            // $student->grade = $request->
-            // $student->father_name = $request->fatherName;
-            // $student->address = $request->address;
-            // $student->class_id = (int)$request->student_class;
-            // $student->save();
-
        // return response()->json(['success' =>"Successfully Added Student", 200]);
        return response()->json(['success' =>"Successfully Added Student", 200]);
     }

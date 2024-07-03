@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -42,5 +43,9 @@ class AdminController extends Controller
         $user->admin()->save($admin);
         return 'done';
 
+    }
+    public function teachers(){
+        $teachers = Teacher::all();
+        return \view('system_admin.all_teachers',['teachers' => $teachers]);
     }
 }

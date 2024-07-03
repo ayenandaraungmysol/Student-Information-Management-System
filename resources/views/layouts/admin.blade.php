@@ -53,7 +53,7 @@
                     <span class="list-group-item disabled d-none d-lg-block">
                         <small>TEACHERS</small>
                     </span>
-                    <a href="#" class="list-group-item list-group-item-action ">
+                    <a href="{{route('teacher.all')}}" class="list-group-item list-group-item-action ">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <span class="d-none d-lg-inline">All Teachers</span>
                     </a>

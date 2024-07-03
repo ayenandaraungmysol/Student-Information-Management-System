@@ -37,7 +37,7 @@
                     <span class="list-group-item disabled d-none d-lg-block">
                         <small>STUDENTS</small>
                     </span>
-                    <a href="#" class="list-group-item list-group-item-action ">
+                    <a href="{{route('teacher.students')}}" class="list-group-item list-group-item-action ">
                         <i class="fas fa-user-graduate"></i>
                         <span class="d-none d-lg-inline">All Students</span>
                     </a>
@@ -51,9 +51,16 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="flex-fill mt-5">
                         <i class="fas fa-user text-center"></i>
-                        <div class="d-none d-lg-inline">{{ Auth::user()->name }}</div>
-                        <!--<span>Login User Name Here!</span>-->
-
+                        <div class="d-none d-lg-inline">{{ Auth::user()->name }}</div><span>< {{ Auth::user()->teacher->designation}} ></span><br>
+                        <div class="d-none d-lg-inline">Grade: {{ Auth::user()->teacher->grade}}</div>
+                        {{--<div class="d-none d-lg-inline">Teacher Class Id: {{ Auth::user()->teacher->class_id}}</div>--}}
+                        @if (Auth::user()->teacher->class_id === 1)
+                        <div class="d-none d-lg-inline">(Class: A)</div>
+                        @elseif (Auth::user()->teacher->class_id === 2)
+                        <div class="d-none d-lg-inline">(Class: B) </div>
+                        @else
+                        <div class="d-none d-lg-inline">(Class: C) </div>
+                        @endif
                     </div>
                     <div class="mt-5">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();

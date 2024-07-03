@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Teacher;
+use App\Models\Student;
+
 class TeacherController extends Controller
 {
     //This is for Testing Need to modify these data
@@ -32,6 +34,9 @@ class TeacherController extends Controller
         return 'done';
     }
     public function studentsOfTeacher(){
-
+        $teacher_class = Auth::user()->teacher->class_id;
+        $teacher_grade = Auth::user()->teacher->grade;
+        $students = Student::where('class_id',$teacher_class)->where('grade', $teacher_grade)->get();
+        return view('teacher.teacher_all_student',['students' => $students]);
     }
 }
