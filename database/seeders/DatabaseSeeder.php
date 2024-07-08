@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         //$this->call(ClassesSeeder::class);//Already Inserted
        //factory(App\Models\Role::class,3)->create();//another syntax
        //Role::factory()->count(3)->create();//Already Inserted
-       Teacher::factory()->count(1)->create();
+       //Teacher::factory()->count(1)->create();//Already Inserted
+       $this->call(CertificateSeeder::class);
 
     }
 }

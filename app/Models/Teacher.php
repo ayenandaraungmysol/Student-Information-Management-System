@@ -28,5 +28,8 @@ class Teacher extends Model
     public function class(){
         return $this->belongsTo(Classes::class, 'class_id');
     }
+    public function certificates(){
+        return $this->belongsToMany(Certificate::class);
+    }
 
 }

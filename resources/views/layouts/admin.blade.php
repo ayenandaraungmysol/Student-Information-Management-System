@@ -57,7 +57,7 @@
                         <i class="fas fa-chalkboard-teacher"></i>
                         <span class="d-none d-lg-inline">All Teachers</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
+                    <a href="/admin/insert" class="list-group-item list-group-item-action">
                         <i class="fas fa-user-plus"></i>
                         <span class="d-none d-lg-inline">Create Teachers</span>
                         <!--<span class="d-none d-lg-inline badge bg-danger
