@@ -41,6 +41,10 @@
                         <i class="fas fa-user-graduate"></i>
                         <span class="d-none d-lg-inline">All Students</span>
                     </a>
+                    <a href="{{route('teacher.profile')}}" class="list-group-item list-group-item-action ">
+                        <i class="fas fa-user"></i>
+                        <span class="d-none d-lg-inline">Profile</span>
+                    </a>
                 </div>
 
 
@@ -51,7 +55,9 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="flex-fill mt-5">
                         <i class="fas fa-user text-center"></i>
-                        <div class="d-none d-lg-inline">{{ Auth::user()->name }}</div><span>< {{ Auth::user()->teacher->designation}} ></span><br>
+                        <div class="d-none d-lg-inline">{{ Auth::user()->name }}</div>
+                        <span>[ Role Name : {{Auth::user()->role->role_name}}]</span>
+                        <div>< {{ Auth::user()->teacher->designation}} ></div>
                         <div class="d-none d-lg-inline">Grade: {{ Auth::user()->teacher->grade}}</div>
                         {{--<div class="d-none d-lg-inline">Teacher Class Id: {{ Auth::user()->teacher->class_id}}</div>--}}
                         @if (Auth::user()->teacher->class_id === 1)

@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     //
-    public function create(){
+    public function create()
+    {
         $user = User::create([
             'name' => 'John Doe',
             'email' => 'john.doe@example.com',
@@ -44,8 +45,10 @@ class AdminController extends Controller
         return 'done';
 
     }
-    public function teachers(){
+    public function teachers()
+    {
         $teachers = Teacher::all();
+        //$teachers = Teacher::paginate(5);
         return \view('system_admin.all_teachers',['teachers' => $teachers]);
     }
 }

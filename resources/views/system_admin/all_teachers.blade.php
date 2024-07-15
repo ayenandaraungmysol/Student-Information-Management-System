@@ -20,6 +20,8 @@
                         <th scope="col">Grade</th>
                         <th scope="col">Designation</th>
                         <th scope="col">Class</th>
+                        <th scope="col">Delete Action</th>
+                        <th scope="col">Edit Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -37,13 +39,34 @@
                         <td>{{$teacher->grade}}</td>
                         <td>{{$teacher->designation}}</td>
                         <td>{{$teacher->class->class_name}}</td>
+                       <td>
+                            <form action="{{ route('teacher.delete', $teacher->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this teacher?');"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
+
+                        {{--<td><a href="{{route('teacher.delete', $teacher->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+                        <td><a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a></td>
+                        --}}
+
+                        <td><form action="{{ route('teacher.update', $teacher->id) }}" method="GET" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-success" ><i class="fas fa-edit"></i></button>
+                        </form></td>
                       </tr>
                      @endforeach
                     </tbody>
+                    <div>
+                        {{--
+                        <div class="d-flex">
+                            <div class="mx-auto">
+                            {{$teachers->links()}}
+                            </div>
+                        </div>--}}
+                    </div>
                   </table>
 
-               {{-- </div>
-            </div>--}}
         </div>
     </div>
 @endsection

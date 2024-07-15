@@ -22,6 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div class="container-fluid">
@@ -73,6 +74,7 @@
                     <div class="flex-fill mt-5">
                         <i class="fas fa-user text-center"></i>
                         <div class="d-none d-lg-inline">{{ Auth::user()->name }}</div>
+                        <span>[ Role Name : {{Auth::user()->role->role_name}}]</span>
                         <!--<span>Login User Name Here!</span>-->
 
                     </div>
