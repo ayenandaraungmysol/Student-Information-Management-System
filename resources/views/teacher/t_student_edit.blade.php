@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.teacher')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -13,7 +13,7 @@
                         {{--@if(session('success'))
                         <div class="alert alert-success">{{session('success')}}</div>
                         @endif--}}
-                        <form id="form" action="{{ route('student.editSave', $student->id) }}" method="POST"><!--Need To Modify-->{{-- action="{{ route('student.store') }}"--}}
+                        <form id="form" action="{{ route('teacher.student.editSave', $student->id) }}" method="POST"><!--Need To Modify-->{{-- action="{{ route('student.store') }}"--}}
                             @csrf
 
                             <div class="row mb-3">
@@ -82,7 +82,7 @@
                                 <label for="Grade" class="col-md-4 col-form-label text-md-end">{{ __('Grade') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="grade" type="grade" class="form-control" name="grade" value="{{$student->grade}}">
+                                    <input id="grade" type="grade" class="form-control" name="grade" value="{{$student->grade}}" disabled>
                                     <span id="grade-error" class="text-danger"></span>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                             <div class="row mb-3">
                                 <label for="Classes" class="col-md-4 col-form-label text-md-end">{{ __('Class') }}</label>
                                 <div class="col-md-6">
-                                    <select name="class_id" id="student_class">
+                                    <select name="class_id" id="student_class" disabled>
                                         @foreach($classes as $class)
                                             <option value="{{ $class->id }}" {{$student->class_id == $class->id ? 'selected' : ''}}>{{ $class->class_name }}</option>
                                         @endforeach
@@ -206,7 +206,7 @@
 
                 $.ajax({
 
-                    url: '{{route('student.editSave', $student->id) }}',
+                    url: '{{route('teacher.student.editSave', $student->id) }}',
                     method: 'post',
                     data: {name: name, email: email, phone: phone, gender: gender, age: age, grade: grade, fatherName: fatherName, address: address, student_class: student_class},
 

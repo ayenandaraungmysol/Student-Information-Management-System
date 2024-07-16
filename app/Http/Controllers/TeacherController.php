@@ -149,7 +149,28 @@ class TeacherController extends Controller
         $teacher->certificates()->sync($certificates);
         return response()->json(['success' =>"Successfully Updated Teacher", 200]);
     }
-
+    public function editStudent($id)
+    {
+        $student_info = Student::find($id);
+        $classes = Classes::all();
+        return view('teacher.t_student_edit', ['student' => $student_info, 'classes' => $classes]);
+    }
+    public function editSaveStudent($id, Request $request)
+    {
+        $student = Student::find($id);
+        $student->name = $request->input('name');
+        $student->email = $request->input('email');
+        $student->phone = $request->input('phone');
+        $student->gender = $request->input('gender');
+        $student->age = $request->input('age');
+        $student->grade = $request->input('grade');
+        $student->father_name = $request->input('fatherName');
+        $student->address = $request->input('address');
+        $student->class_id = (int)$request->input('student_class');
+        $student->update();
+        return response()->json(['success' => "Successfully Updated Student", 200]);
+    }
+    
     //Testing Method
     public function manytomany()
     {

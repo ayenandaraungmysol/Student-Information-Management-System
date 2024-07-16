@@ -41,6 +41,8 @@ Route::post('/admin/studentSaveEdit/{id}', [\App\Http\Controllers\StudentControl
 //Teacher's route
 Route::get('/teacher/students', [\App\Http\Controllers\TeacherController::class,'studentsOfTeacher'])->name('teacher.students');
 Route::get('/teacher/details', [\App\Http\Controllers\TeacherController::class, 'detail'])->name('teacher.profile');
+Route::get('/teacher/edit/{id}', [\App\Http\Controllers\TeacherController::class, 'editStudent'])->name('teacher.student.edit');
+Route::post('/teacher/editSaveStudent/{id}',[\App\Http\Controllers\TeacherController::class, 'editSaveStudent'])->name('teacher.student.editSave');
 
 
 
